@@ -1,5 +1,3 @@
-## creamos las tablas 
-
 CREATE DATABASE tomado_parcial;
 use tomado_parcial;
 
@@ -37,7 +35,7 @@ ALTER TABLE rend_horas ADD CONSTRAINT
 REFERENCES part_proyecto(legajo);
 	
 create table liqui_proyect(
-	legajo INT NOT NULL  ,
+	
 	rol_desempeñado VARCHAR(255),
 	cliente VARCHAR(255),
 	id_proyecto INT,
@@ -50,31 +48,32 @@ create table liqui_proyect(
 
 
 CREATE TABLE facturacion(
+	cargo VARCHAR(255),
 	cliente VARCHAR(255),
 	id_proyecto INT AUTO_INCREMENT PRIMARY KEY,  
 	proyecto VARCHAR(255),
 	cost_proyecto DOUBLE 
 );
 
-	
 ALTER TABLE part_proyecto ADD CONSTRAINT 
 	FOREIGN KEY (id_proyecto)
 REFERENCES  facturacion(id_proyecto);
 
 CREATE TABLE auditoria(
-	legajo  INT ,
 	rol_desempeñado VARCHAR(90),
+	id_proyecto INT , 
 	Proyecto VARCHAR(90),
-	Agregar_horas VARCHAR(1),
-	Quita_horas VARCHAR(1)
+	Agregar_horas CHAR(1),
+	Quita_horas CHAR(1)
 );
 
 
-drop table auditoria 
+
 DROP TABLE rend_horas;
 DROP TABLE part_proyecto;
 DROP TABLE nombre ;
 DROP TABLE apellido ;
 DROP TABLE facturacion ;
 DROP TABLE liqui_proyect;
-
+DROP TABLE auditoria;
+DROP  table prueba_liqui_proyect
